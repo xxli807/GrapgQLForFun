@@ -4,7 +4,8 @@
   "description": "graph for fun",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "xinxin li",
   "license": "MIT",
@@ -12,5 +13,14 @@
     "express": "^4.15.4",
     "express-graphql": "^0.6.11",
     "graphql": "^0.11.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xxli807/GrapgQLForFun.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xxli807/GrapgQLForFun/issues"
+  },
+  "homepage": "https://github.com/xxli807/GrapgQLForFun#readme"
 }
