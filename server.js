@@ -20,6 +20,10 @@ type RandomDie {
   roll(numRolls: Int!): [Int]
 }
 
+type Mutation {
+  setMessage(message: String): String
+}
+
 type Query {
   getDie(numSides: Int): RandomDie
 }
@@ -27,28 +31,32 @@ type Query {
 
 // This class implements the RandomDie GraphQL type
 class RandomDie {
-constructor(numSides) {
-  this.numSides = numSides;
-}
-
-rollOnce() {
-  return 1 + Math.floor(Math.random() * this.numSides);
-}
-
-roll({numRolls}) {
-  var output = [];
-  for (var i = 0; i < numRolls; i++) {
-    output.push(this.rollOnce());
+  constructor(numSides) {
+    this.numSides = numSides;
   }
-  return output;
-}
+
+  rollOnce() {
+    return 1 + Math.floor(Math.random() * this.numSides);
+  }
+
+  roll({ numRolls }) {
+    var output = [];
+    for (var i = 0; i < numRolls; i++) {
+      output.push(this.rollOnce());
+    }
+    return output;
+  }
 }
 
 // The root provides the top-level API endpoints
 var root = {
-getDie: function ({numSides}) {
-  return new RandomDie(numSides || 6);
-}
+  getDie: function ({ numSides }) {
+    return new RandomDie(numSides || 6);
+  },
+  setMessage: function ({message}) {
+    console.log(message);
+    return true;
+  },
 }
 
 var app = express();
